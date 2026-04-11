@@ -9,20 +9,48 @@
 body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
-    background: linear-gradient(to right, #eef2f3, #ffffff);
+    background: #f5f7fa;
 }
 
-/* HEADER */
-header {
-    background: #0f172a;
+/* HERO SECTION */
+.hero {
+    background: url('banner.jpg') no-repeat center center/cover;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
-    padding: 30px;
     text-align: center;
-    animation: fadeDown 1s ease;
+    position: relative;
 }
 
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeUp 1s ease;
+}
+
+.hero h1 {
+    font-size: 45px;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+/* NAV */
 nav {
-    background: #1e293b;
+    background: #0f172a;
     padding: 12px;
     text-align: center;
 }
@@ -32,26 +60,20 @@ nav a {
     margin: 15px;
     text-decoration: none;
     font-weight: 600;
-    transition: 0.3s;
 }
 
 nav a:hover {
     color: #38bdf8;
 }
 
-/* SECTIONS */
+/* SECTION */
 section {
     padding: 50px;
     margin: 20px;
     border-radius: 15px;
-    background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(10px);
+    background: white;
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     animation: fadeUp 1s ease;
-}
-
-h2 {
-    color: #0f172a;
 }
 
 /* ADVOCATES */
@@ -62,36 +84,27 @@ h2 {
 }
 
 .card {
-    background: white;
     border-radius: 15px;
     overflow: hidden;
     flex: 1;
     min-width: 250px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    background: #fff;
+    transition: 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: translateY(-8px);
 }
 
+/* FIXED IMAGE FIT */
 .card img {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
+    height: 300px;
+    object-fit: cover; /* Important */
 }
 
-.card h3 {
+.card h3, .card p {
     padding: 10px;
-}
-
-.card p {
-    padding: 0 10px 10px;
-}
-
-/* SERVICES */
-.services ul {
-    line-height: 2;
 }
 
 /* CONTACT */
@@ -106,14 +119,16 @@ h2 {
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
-    transition: 0.3s;
 }
 
-.whatsapp-btn:hover {
-    background: #1ebe5d;
+/* MAP */
+.map {
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-/* FLOATING BUTTON */
+/* FLOATING WHATSAPP */
 .float-whatsapp {
     position: fixed;
     bottom: 20px;
@@ -124,18 +139,9 @@ h2 {
     border-radius: 50%;
     font-size: 20px;
     text-decoration: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #0f172a;
-    color: white;
-}
-
-/* ANIMATIONS */
+/* ANIMATION */
 @keyframes fadeUp {
     from {
         opacity: 0;
@@ -147,14 +153,10 @@ footer {
     }
 }
 
-@keyframes fadeDown {
-    from {
-        opacity: 0;
-        transform: translateY(-40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+/* MOBILE */
+@media(max-width:768px) {
+    .hero h1 {
+        font-size: 28px;
     }
 }
 </style>
@@ -162,10 +164,13 @@ footer {
 
 <body>
 
-<header>
-    <h1>Advocate Legal Services</h1>
-    <p>Professional & Trusted Legal Solutions</p>
-</header>
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-content">
+        <h1>Trusted Legal Experts</h1>
+        <p>Providing reliable and professional legal solutions</p>
+    </div>
+</div>
 
 <nav>
     <a href="#about">About</a>
@@ -180,24 +185,22 @@ footer {
 
         <div class="card">
             <img src="advocate1.jpg">
-            <h3>Mr.Saurabh Bhende</h3>
+            <h3>Mr.Saurabh bhende</h3>
             <p><strong>Specialization:</strong> Civil & Criminal Law</p>
             <p><strong>Experience:</strong> 10+ years</p>
-            <p>Expert in handling disputes and legal consultation.</p>
         </div>
 
         <div class="card">
             <img src="advocate2.jpg">
-            <h3>Advocate Name </h3>
+            <h3>Mrs.Gunjan Bhende</h3>
             <p><strong>Specialization:</strong> Corporate & Family Law</p>
             <p><strong>Experience:</strong> 8+ years</p>
-            <p>Specialist in corporate and family legal services.</p>
         </div>
 
     </div>
 </section>
 
-<section id="services" class="services">
+<section id="services">
     <h2>Services Offered</h2>
     <ul>
         <li>Legal Consultation</li>
@@ -212,7 +215,7 @@ footer {
 <section id="contact" class="contact">
     <h2>Contact Us</h2>
     <p><strong>Phone:</strong> +91-9699539365</p>
-    <p><strong>Email:</strong> RikamChot@gmail.com</p>
+    <p><strong>Email:</strong> Rikam_Chot@gmail.com</p>
     <p><strong>Address:</strong> Your Office Address</p>
 
     <br>
@@ -220,20 +223,24 @@ footer {
     <a class="whatsapp-btn"
        href="https://wa.me/919699539365?text=Hello%20I%20would%20like%20to%20consult%20regarding%20legal%20services.%20Please%20assist."
        target="_blank">
-       Send Enquiry on WhatsApp
+       Contact on WhatsApp
     </a>
+
+    <!-- GOOGLE MAP -->
+    <div class="map">
+<iframe 
+    src="https://www.google.com/maps?q=Nagpur%20High%20Court&output=embed"
+    width="100%" height="300" style="border:0;">
+</iframe>
+    </div>
 </section>
 
-<!-- Floating WhatsApp -->
+<!-- FLOAT BUTTON -->
 <a class="float-whatsapp"
    href="https://wa.me/919699539365?text=Hi%20I%20need%20legal%20help"
    target="_blank">
    💬
 </a>
-
-<footer>
-    <p>© 2026 Advocate Legal Services</p>
-</footer>
 
 </body>
 </html>
