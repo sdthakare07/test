@@ -7,42 +7,54 @@
 
 <style>
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
-    background-color: #f4f4f4;
+    background: linear-gradient(to right, #eef2f3, #ffffff);
 }
 
+/* HEADER */
 header {
-    background: #1e2a38;
+    background: #0f172a;
     color: white;
-    padding: 20px;
+    padding: 30px;
     text-align: center;
+    animation: fadeDown 1s ease;
 }
 
 nav {
-    background: #2c3e50;
-    padding: 10px;
+    background: #1e293b;
+    padding: 12px;
     text-align: center;
 }
 
 nav a {
     color: white;
-    margin: 10px;
+    margin: 15px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
+nav a:hover {
+    color: #38bdf8;
+}
+
+/* SECTIONS */
 section {
-    padding: 40px;
-    background: white;
+    padding: 50px;
     margin: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    animation: fadeUp 1s ease;
 }
 
 h2 {
-    color: #2c3e50;
+    color: #0f172a;
 }
 
+/* ADVOCATES */
 .advocates {
     display: flex;
     gap: 20px;
@@ -50,24 +62,39 @@ h2 {
 }
 
 .card {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
     flex: 1;
     min-width: 250px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .card img {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    border-radius: 10px;
 }
 
+.card h3 {
+    padding: 10px;
+}
+
+.card p {
+    padding: 0 10px 10px;
+}
+
+/* SERVICES */
 .services ul {
-    line-height: 1.8;
+    line-height: 2;
 }
 
+/* CONTACT */
 .contact {
     text-align: center;
 }
@@ -75,17 +102,60 @@ h2 {
 .whatsapp-btn {
     background: #25D366;
     color: white;
-    padding: 12px 20px;
-    border-radius: 5px;
+    padding: 14px 25px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.3s;
 }
 
+.whatsapp-btn:hover {
+    background: #1ebe5d;
+}
+
+/* FLOATING BUTTON */
+.float-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* FOOTER */
 footer {
     text-align: center;
     padding: 15px;
-    background: #1e2a38;
+    background: #0f172a;
     color: white;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 </style>
 </head>
@@ -109,19 +179,19 @@ footer {
     <div class="advocates">
 
         <div class="card">
-            <img src="advocate1.jpg" alt="Advocate 1">
+            <img src="advocate1.jpg">
             <h3>Mr.Saurabh Bhende</h3>
             <p><strong>Specialization:</strong> Civil & Criminal Law</p>
             <p><strong>Experience:</strong> 10+ years</p>
-            <p>Expert in handling civil disputes, criminal defense, and legal consultation.</p>
+            <p>Expert in handling disputes and legal consultation.</p>
         </div>
 
         <div class="card">
-            <img src="advocate2.jpg" alt="Advocate 2">
-            <h3>Mrs.Gunjan Bhende</h3>
+            <img src="advocate2.jpg">
+            <h3>Advocate Name </h3>
             <p><strong>Specialization:</strong> Corporate & Family Law</p>
             <p><strong>Experience:</strong> 8+ years</p>
-            <p>Specialist in corporate advisory, family disputes, and documentation.</p>
+            <p>Specialist in corporate and family legal services.</p>
         </div>
 
     </div>
@@ -133,22 +203,20 @@ footer {
         <li>Legal Consultation</li>
         <li>Civil Cases</li>
         <li>Criminal Defense</li>
-        <li>Family Law (Divorce, Custody)</li>
-        <li>Property & Documentation</li>
+        <li>Family Law</li>
+        <li>Property Documentation</li>
         <li>Corporate Legal Services</li>
-        <li>Agreement Drafting</li>
     </ul>
 </section>
 
 <section id="contact" class="contact">
     <h2>Contact Us</h2>
     <p><strong>Phone:</strong> +91-9699539365</p>
-    <p><strong>Email:</strong> example@gmail.com</p>
+    <p><strong>Email:</strong> RikamChot@gmail.com</p>
     <p><strong>Address:</strong> Your Office Address</p>
 
     <br>
 
-    <!-- WhatsApp Button -->
     <a class="whatsapp-btn"
        href="https://wa.me/919699539365?text=Hello%20I%20would%20like%20to%20consult%20regarding%20legal%20services.%20Please%20assist."
        target="_blank">
@@ -156,8 +224,15 @@ footer {
     </a>
 </section>
 
+<!-- Floating WhatsApp -->
+<a class="float-whatsapp"
+   href="https://wa.me/919699539365?text=Hi%20I%20need%20legal%20help"
+   target="_blank">
+   💬
+</a>
+
 <footer>
-    <p>© 2026 Advocate Legal Services | All Rights Reserved</p>
+    <p>© 2026 Advocate Legal Services</p>
 </footer>
 
 </body>
